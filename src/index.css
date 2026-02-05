@@ -1,0 +1,414 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luma Weather Design System */
+
+@layer base {
+  :root {
+    /* Base surfaces */
+    --background: 30 60% 97%;
+    --foreground: 0 0% 17%;
+
+    /* Cream base */
+    --cream: 30 100% 96%;
+    --cream-foreground: 0 0% 17%;
+
+    /* Pastel palette */
+    --pastel-pink: 350 70% 91%;
+    --pastel-pink-foreground: 0 0% 17%;
+    --pastel-mint: 160 50% 88%;
+    --pastel-mint-foreground: 0 0% 17%;
+    --pastel-lavender: 255 60% 91%;
+    --pastel-lavender-foreground: 0 0% 17%;
+    --pastel-peach: 20 80% 90%;
+    --pastel-peach-foreground: 0 0% 17%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 17%;
+
+    /* Primary - Deep charcoal for text */
+    --primary: 0 0% 17%;
+    --primary-foreground: 30 100% 96%;
+
+    /* Secondary - Soft gray */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 0 0% 17%;
+
+    /* Muted text */
+    --muted: 210 20% 93%;
+    --muted-foreground: 0 0% 42%;
+
+    /* Accent - Mint */
+    --accent: 160 50% 88%;
+    --accent-foreground: 0 0% 17%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders - Very soft */
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 160 50% 70%;
+
+    --radius: 1.5rem;
+
+    /* Custom kawaii tokens */
+
+    --shadow-kawaii: 0 8px 24px rgba(30, 20, 60, 0.05);
+    --shadow-luma-md: 0 6px 16px rgba(30, 20, 60, 0.04);
+    --shadow-luma-sm: 0 2px 8px rgba(30, 20, 60, 0.03);
+    --shadow-luma-hover: 0 12px 32px rgba(30, 20, 60, 0.08);
+
+    /* Sidebar */
+    --sidebar-background: 30 60% 97%;
+    --sidebar-foreground: 0 0% 17%;
+    --sidebar-primary: 0 0% 17%;
+    --sidebar-primary-foreground: 30 100% 96%;
+    --sidebar-accent: 160 50% 88%;
+    --sidebar-accent-foreground: 0 0% 17%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 160 50% 70%;
+  }
+
+  /* Night mode - based on time of day */
+  .night {
+    /* Deep purple/indigo background */
+    --background: 265 45% 15%;
+    --foreground: 240 20% 95%;
+
+    --cream: 265 30% 18%;
+    --cream-foreground: 240 20% 95%;
+
+    /* Night pastels */
+    --pastel-pink: 340 60% 75%;
+    --pastel-pink-foreground: 350 50% 10%;
+    --pastel-mint: 160 45% 70%;
+    --pastel-mint-foreground: 160 50% 10%;
+    --pastel-lavender: 260 60% 75%;
+    --pastel-lavender-foreground: 260 50% 10%;
+    --pastel-peach: 25 70% 75%;
+    --pastel-peach-foreground: 20 60% 10%;
+
+    /* Glassmorphism for cards */
+    --card: 260 30% 25% / 0.4;
+    --card-foreground: 240 10% 95%;
+
+    --popover: 260 30% 20%;
+    --popover-foreground: 240 20% 95%;
+
+    --primary: 240 20% 95%;
+    --primary-foreground: 265 45% 15%;
+
+    --secondary: 260 25% 30%;
+    --secondary-foreground: 240 20% 95%;
+
+    --muted: 260 25% 25%;
+    --muted-foreground: 240 20% 80%;
+
+    --accent: 260 40% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Glass border */
+    --border: 260 30% 60% / 0.2;
+    --input: 260 30% 30%;
+    --ring: 260 50% 70%;
+
+    --sidebar-background: 265 45% 15%;
+    --sidebar-foreground: 240 20% 95%;
+    --sidebar-primary: 260 60% 75%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 30% 25%;
+    --sidebar-accent-foreground: 240 20% 95%;
+    --sidebar-border: 260 30% 60% / 0.2;
+    --sidebar-ring: 260 50% 70%;
+
+    /* Night-specific tokens */
+    --night-sky-start: 260 50% 10%;
+    --night-sky-end: 270 40% 20%;
+    --starlight: 45 90% 85%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 22px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-gaegu antialiased;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-gaegu font-bold;
+    line-height: 1.3;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  code {
+    font-size: 0.7em;
+  }
+}
+
+@layer components {
+  /* Luma card base styles */
+  .luma-card {
+    @apply rounded-3xl bg-card shadow-kawaii transition-all duration-300 border border-border/50;
+  }
+
+  /* Add glass effect only in night mode */
+  .night .luma-card {
+    @apply backdrop-blur-xl shadow-luma-md border-white/30;
+    background: linear-gradient(145deg, hsl(260 30% 25% / 0.6), hsl(260 30% 20% / 0.4));
+    box-shadow: var(--shadow-kawaii);
+  }
+
+  .luma-card-interactive:hover {
+    @apply shadow-luma-hover -translate-y-0.5;
+  }
+
+  /* Pastel card variants - transparent in night mode */
+  .luma-card-pink {
+    @apply bg-pastel-pink text-pastel-pink-foreground;
+  }
+  .night .luma-card-pink {
+    @apply bg-pastel-pink/20 text-pastel-pink border-pastel-pink/30;
+  }
+
+  .luma-card-mint {
+    @apply bg-pastel-mint text-pastel-mint-foreground;
+  }
+  .night .luma-card-mint {
+    @apply bg-pastel-mint/20 text-pastel-mint border-pastel-mint/30;
+  }
+
+  .luma-card-lavender {
+    @apply bg-pastel-lavender text-pastel-lavender-foreground;
+  }
+  .night .luma-card-lavender {
+    @apply bg-pastel-lavender/20 text-pastel-lavender border-pastel-lavender/30;
+  }
+
+  .luma-card-peach {
+    @apply bg-pastel-peach text-pastel-peach-foreground;
+  }
+  .night .luma-card-peach {
+    @apply bg-pastel-peach/20 text-pastel-peach border-pastel-peach/30;
+  }
+
+  /* Subtle floating animation */
+  .luma-float {
+    animation: luma-float 3s ease-in-out infinite;
+  }
+
+  /* Watercolor texture overlay */
+  .watercolor-wash {
+    @apply relative;
+  }
+
+  .watercolor-wash::before {
+    content: "";
+    @apply absolute inset-0 opacity-5 pointer-events-none rounded-3xl;
+    background: radial-gradient(ellipse at 30% 20%, hsl(var(--pastel-pink)) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, hsl(var(--pastel-lavender)) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, hsl(var(--pastel-mint)) 0%, transparent 70%);
+  }
+
+  /* Night mode specific body styles - Starry Sky */
+  .night body {
+    @apply relative overflow-x-hidden min-h-screen;
+    background: linear-gradient(180deg, hsl(260 50% 8%) 0%, hsl(265 45% 15%) 40%, hsl(270 40% 22%) 100%);
+  }
+
+  .night body::before {
+    content: "";
+    @apply fixed inset-0 pointer-events-none;
+    background-image: radial-gradient(1px 1px at 10% 10%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(1.5px 1.5px at 20% 30%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1px 1px at 35% 15%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(2px 2px at 50% 25%, hsl(45 90% 95%) 1px, transparent 1px), radial-gradient(1px 1px at 65% 8%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(2px 2px at 80% 20%, hsl(45 90% 90%) 1px, transparent 1px),
+      radial-gradient(1px 1px at 90% 35%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1px 1px at 15% 45%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(2.5px 2.5px at 25% 60%, hsl(45 90% 95%) 1.2px, transparent 1.2px), radial-gradient(1px 1px at 40% 50%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1.5px 1.5px at 55% 70%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(1px 1px at 70% 55%, hsl(45 90% 85%) 0.5px, transparent 0.5px),
+      radial-gradient(2px 2px at 85% 65%, hsl(45 90% 90%) 1px, transparent 1px), radial-gradient(2px 2px at 95% 45%, hsl(45 90% 95%) 1px, transparent 1px), radial-gradient(1px 1px at 5% 75%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1.5px 1.5px at 30% 85%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(1px 1px at 60% 90%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(2px 2px at 75% 80%, hsl(45 90% 90%) 1px, transparent 1px),
+      /* More sars */ radial-gradient(0.8px 0.8px at 12% 5%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1px 1px at 45% 5%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1.2px 1.2px at 75% 3%, hsl(45 90% 90%) 0.6px, transparent 0.6px), radial-gradient(0.8px 0.8px at 92% 10%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1px 1px at 3% 20%, hsl(45 90% 85%) 0.5px, transparent 0.5px),
+      radial-gradient(1px 1px at 28% 22%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(0.8px 0.8px at 58% 18%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1.5px 1.5px at 18% 35%, hsl(45 90% 95%) 0.7px, transparent 0.7px), radial-gradient(0.8px 0.8px at 42% 40%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1.2px 1.2px at 68% 32%, hsl(45 90% 90%) 0.6px, transparent 0.6px), radial-gradient(1px 1px at 98% 25%, hsl(45 90% 85%) 0.5px, transparent 0.5px),
+      radial-gradient(0.8px 0.8px at 8% 55%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1px 1px at 32% 52%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1.5px 1.5px at 62% 48%, hsl(45 90% 95%) 0.7px, transparent 0.7px), radial-gradient(0.8px 0.8px at 88% 58%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1px 1px at 22% 68%, hsl(45 90% 90%) 0.5px, transparent 0.5px), radial-gradient(1.2px 1.2px at 48% 62%, hsl(45 90% 90%) 0.6px, transparent 0.6px),
+      radial-gradient(0.8px 0.8px at 78% 72%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1px 1px at 12% 82%, hsl(45 90% 85%) 0.5px, transparent 0.5px), radial-gradient(1.5px 1.5px at 38% 78%, hsl(45 90% 95%) 0.7px, transparent 0.7px), radial-gradient(0.8px 0.8px at 65% 85%, hsl(45 90% 80%) 0.4px, transparent 0.4px), radial-gradient(1.2px 1.2px at 92% 75%, hsl(45 90% 90%) 0.6px, transparent 0.6px), radial-gradient(1px 1px at 45% 92%, hsl(45 90% 85%) 0.5px, transparent 0.5px),
+      radial-gradient(1.5px 1.5px at 82% 95%, hsl(45 90% 95%) 0.7px, transparent 0.7px), radial-gradient(0.8px 0.8px at 2% 98%, hsl(45 90% 80%) 0.4px, transparent 0.4px);
+    animation: twinkle 4s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  /* Soft cloud overlay for night - more subtle */
+  .night-clouds {
+    @apply absolute bottom-0 left-0 right-0 h-1/2 pointer-events-none;
+    background: linear-gradient(180deg, transparent 0%, hsl(265 40% 18% / 0.2) 30%, hsl(270 30% 22% / 0.5) 70%, hsl(275 25% 25% / 0.7) 100%);
+  }
+
+  .night body::after {
+    content: "";
+    @apply fixed inset-0 pointer-events-none;
+    background-image: 
+      /* Large starbursts using radial gradients */ radial-gradient(circle at 15% 25%, hsl(45 90% 90%) 1px, transparent 1px), radial-gradient(circle at 15% 25%, hsl(45 90% 90% / 0.5) 2px, transparent 2px), radial-gradient(circle at 75% 15%, hsl(45 90% 90%) 1px, transparent 1px), radial-gradient(circle at 75% 15%, hsl(45 90% 90% / 0.5) 2px, transparent 2px), radial-gradient(circle at 85% 60%, hsl(45 90% 90%) 1px, transparent 1px),
+      radial-gradient(circle at 85% 60%, hsl(45 90% 90% / 0.5) 2px, transparent 2px), radial-gradient(circle at 20% 80%, hsl(45 90% 90%) 1px, transparent 1px), radial-gradient(circle at 20% 80%, hsl(45 90% 90% / 0.5) 2px, transparent 2px);
+
+    /* Star burst shape with linear gradients */
+    background: 
+      /* Star 1 */ radial-gradient(circle at 15% 25%, hsl(45 100% 90%) 0.5px, transparent 0.5px), linear-gradient(0deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 15% 25% / 20px 20px no-repeat, linear-gradient(90deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 15% 25% / 20px 20px no-repeat, /* Star 2 */ radial-gradient(circle at 75% 15%, hsl(45 100% 90%) 0.5px, transparent 0.5px),
+      linear-gradient(0deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 75% 15% / 16px 16px no-repeat, linear-gradient(90deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 75% 15% / 16px 16px no-repeat, /* Star 3 */ radial-gradient(circle at 85% 65%, hsl(45 100% 90%) 0.5px, transparent 0.5px), linear-gradient(0deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 85% 65% / 24px 24px no-repeat,
+      linear-gradient(90deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 85% 65% / 24px 24px no-repeat, /* Star 4 */ radial-gradient(circle at 10% 70%, hsl(45 100% 90%) 0.5px, transparent 0.5px), linear-gradient(0deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 10% 70% / 14px 14px no-repeat, linear-gradient(90deg, transparent 48%, hsl(45 90% 80% / 0.8) 50%, transparent 52%) 10% 70% / 14px 14px no-repeat,
+      /* Star 5 - Centerish */ radial-gradient(circle at 50% 40%, hsl(45 100% 90%) 0.5px, transparent 0.5px), linear-gradient(0deg, transparent 48%, hsl(45 90% 80% / 0.6) 50%, transparent 52%) 50% 40% / 18px 18px no-repeat, linear-gradient(90deg, transparent 48%, hsl(45 90% 80% / 0.6) 50%, transparent 52%) 50% 40% / 18px 18px no-repeat;
+
+    z-index: -1;
+    animation: pulse-star 3s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes pulse-star {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .shadow-kawaii {
+    box-shadow: var(--shadow-kawaii);
+  }
+
+  .shadow-luma-md {
+    box-shadow: var(--shadow-luma-md);
+  }
+
+  .shadow-luma-sm {
+    box-shadow: var(--shadow-luma-sm);
+  }
+
+  .shadow-luma-hover {
+    box-shadow: var(--shadow-luma-hover);
+  }
+
+  .drop-shadow-kawaii {
+    filter: drop-shadow(var(--shadow-kawaii));
+  }
+
+  .font-gaegu {
+    font-family: "Gaegu", cursive;
+  }
+
+  /* Background utilities */
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-pastel-pink {
+    background-color: hsl(var(--pastel-pink));
+  }
+
+  .bg-pastel-mint {
+    background-color: hsl(var(--pastel-mint));
+  }
+
+  .bg-pastel-lavender {
+    background-color: hsl(var(--pastel-lavender));
+  }
+
+  .bg-pastel-peach {
+    background-color: hsl(var(--pastel-peach));
+  }
+
+  /* Text utilities */
+  .text-pastel-pink-foreground {
+    color: hsl(var(--pastel-pink-foreground));
+  }
+
+  .text-pastel-mint-foreground {
+    color: hsl(var(--pastel-mint-foreground));
+  }
+
+  .text-pastel-lavender-foreground {
+    color: hsl(var(--pastel-lavender-foreground));
+  }
+
+  .text-pastel-peach-foreground {
+    color: hsl(var(--pastel-peach-foreground));
+  }
+}
+
+/* Keyframe animations */
+@keyframes luma-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes gentle-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.3s ease-in-out;
+}
