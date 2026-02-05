@@ -1,6 +1,8 @@
 # Luma Weather
 
 > A cute, lightweight weather dashboard. ⛅
+> 
+[**Live Demo**](https://crystalgardner.github.io/luma-weather)
 
 <div align="center">
   <img src="./public/preview-light.png" width="48%" alt="Luma Weather Light Mode" />
